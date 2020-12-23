@@ -1,0 +1,38 @@
+﻿<UserControl x:Class="Try.CircleSegmentPath"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:Try"
+             mc:Ignorable="d"
+             x:Name="UCtrl"
+             d:DesignHeight="160"
+             d:DesignWidth="160">
+  <Path Height="{Binding ElementName=UCtrl,Path=Height}"
+        Width="{Binding ElementName=UCtrl,Path=Width}"
+        Stretch="Uniform"
+        Fill="Red"
+        Stroke="Gray"
+        StrokeThickness="1"
+        ClipToBounds="False"
+        RenderTransformOrigin="{Binding ElementName=UCtrl,Path=RotateOrigin}">
+    <Path.RenderTransform>
+      <RotateTransform Angle="{Binding ElementName=UCtrl,Path=RotateAngle}" />
+    </Path.RenderTransform>
+    <Path.Data>
+      <GeometryGroup>
+        <PathGeometry Figures="{Binding ElementName=UCtrl,Path=Figs}">
+          <!--<PathGeometry.Figures>
+            <PathFigure x:Name="Figs" IsClosed="True">
+            </PathFigure>
+          </PathGeometry.Figures>-->
+        </PathGeometry>
+      </GeometryGroup>
+    </Path.Data>
+  </Path>
+</UserControl>
+<!--<PathFigure.Segments>
+                <ArcSegment  Size="80,80" Point="80,160" SweepDirection="Clockwise"/>
+                <ArcSegment  Size="80,80" Point="32.977179816602138,144.72135954999578" SweepDirection="Clockwise"/>
+                <LineSegment Point="80,80"/>
+              </PathFigure.Segments>-->
